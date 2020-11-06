@@ -1,4 +1,3 @@
-drop database Prueba;
 create database Prueba;
 use Prueba;
 -- Web service paises 
@@ -58,6 +57,8 @@ countryid int auto_increment primary key,
 name varchar(60) not null
 );
 
+alter table tbl_client MODIFY  column creation_date timestamp;
+alter table tbl_citation MODIFY  column creation_date timestamp;
 Alter table Tbl_user add foreign key (asesorid) references Tbl_Asesor(asesorid);
 Alter table Tbl_Client add foreign key (cityid) references Tbl_city(cityid);
 Alter table Tbl_Client add foreign key (countryid) references Tbl_Country(countryid);
@@ -67,13 +68,13 @@ Alter table Tbl_Citation add foreign key (asesorid) references Tbl_Asesor(asesor
 
 INSERT INTO Tbl_City values (null,'Bogota');
 INSERT INTO Tbl_City values (null,'Cali');
+INSERT INTO Tbl_City values (null,'Bucaramanga');
+INSERT INTO Tbl_City values (null,'Madrid');
+INSERT INTO Tbl_City values (null,'Barcelona');
 INSERT INTO Tbl_City values (null,'New York');
 INSERT INTO Tbl_Country values (null,'Colombia');
+INSERT INTO Tbl_Country values (null,'España');
 INSERT INTO Tbl_Country values (null,'Estados Uniidos');
 INSERT INTO Tbl_Client values (null,'Miguel Hernan', 'Medina Betancur', '24323', 'CC', null, '1','1');
-INSERT INTO Tbl_Citation values (null,'1', '1', 'Activa','2020-11-05','5', '15', null);
-alter table tbl_client MODIFY  column creation_date timestamp;
-alter table tbl_citation MODIFY  column creation_date timestamp;
-select * from tbl_asesor;
-select * from tbl_citation;
-select * from Tbl_Citation as tc inner join tbl_asesor as ta on  tc.asesorid = ta.asesorid  where ta.identification = '3141514' and tc.status = 'Activa';
+INSERT INTO Tbl_Citation values (null,'1', '1', 'Activa','2020-11-05','5', '15', '2020-11-06 05:29:17');
+

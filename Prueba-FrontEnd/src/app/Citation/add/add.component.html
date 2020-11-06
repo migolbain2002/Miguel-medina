@@ -1,0 +1,174 @@
+<br>
+<div class="container md-6">
+    <div class="card">
+        <div class="card-header">
+            <h3>Agendar Cita</h3>
+        </div>
+        <div class="card-body">
+            <div class="col-sm-12">
+                <form name="createNewCitation" id="createNewCitation" #createNewCitation="ngForm" (ngSubmit)="Add(createNewCitation)">
+                   
+                    <h3>Informacion del cliente</h3>
+                    <div class="form-group">
+                        <label for="">Identificacion del Cliente:</label>
+                        <input name="identifi" [(ngModel)]="identifi" (change)="getClientByIdentification()" type="text"class="form-control">
+                            <input type="hidden" [(ngModel)]="citationModel.clientid.clientid" name="clientid" value="{{client.clientid}}">
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 pr-md-1">
+                            <div class="form-group">
+                                <label>Nombre Cliente: </label>
+                                <input name="nameClient" #nameClient="ngModel" [(ngModel)]="client.name" type="text"
+                                    class="form-control" disabled>
+                            </div>
+                        </div>
+                        <div class="col-md-6 pr-md-1">
+                            <div class="form-group">
+                                <label>Apellidos Cliente: </label>
+                                <input [(ngModel)]="client.lastname" name="lastname" type="text" class="form-control"
+                                    disabled>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 pr-md-1">
+                            <div class="form-group">
+                                <label>Pais: </label>
+                                <input [(ngModel)]="client.countryid.name" name="countryid" type="text"
+                                    class="form-control" disabled>
+                            </div>
+                        </div>
+                        <div class="col-md-6 pr-md-1">
+                            <div class="form-group">
+                                <label>Ciudad: </label>
+                                <input [(ngModel)]="client.cityid.name" name="cityid" type="text" class="form-control"
+                                    disabled>
+                            </div>
+                        </div>
+                    </div>
+          
+                <!--  Asesor -->
+
+                    <h3>Informacion del asesor</h3>
+                    
+                    <div class="form-group">
+                        <label for="">Identificacion del Asesor:</label>                      
+                        <input name="identifiAsesor" [(ngModel)]="identificationAsesor" (change)="getAsesorByIdentification()" type="text" class="form-control">    
+                            <input type="hidden" [(ngModel)]="citationModel.asesorid.asesorid" name="asesorid" #asesorid="ngModel"  value="{{asesor.asesorid}}">
+                    </div>                 
+                    
+                    <div class="row">
+                        <div class="col-md-6 pr-md-1">
+                            <div class="form-group">
+                                <label>Nombre Asesor: </label>
+                                <input name="nameAsesor" #nameAsesor="ngModel" [(ngModel)]="asesor.fullname" type="text"
+                                    class="form-control" disabled>
+                            </div>
+                        </div>
+                        <div class="col-md-6 pr-md-1">
+                            <div class="form-group">
+                                <label>Identificacion: </label>
+                                <input [(ngModel)]="asesor.identification" name="identification" type="text"
+                                    class="form-control" disabled>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 pr-md-1">
+                            <div class="form-group">
+                                <label>Especialidad: </label>
+                                <input [(ngModel)]="asesor.speciality" name="specialty" type="text" class="form-control"
+                                    disabled>
+                            </div>
+                        </div>
+                    </div>
+                   
+    
+             
+                <h3>Informacion de la cita</h3>
+                <div class="row">
+                    <div class="col-md-6 pr-md-1">
+                        <div class="form-group">
+                            <label>Inicio Hora Cita: </label>
+                            <select [(ngModel)]="citationModel.begin_citationtime" name="begin_citationtime "
+                                class="form-control">
+                                <option value="0">00:00</option>
+                                <option value="1">01:00</option>
+                                <option value="2">02:00</option>
+                                <option value="3">03:00</option>
+                                <option value="4">04:00</option>
+                                <option value="5">05:00</option>
+                                <option value="6">06:00</option>
+                                <option value="7">07:00</option>
+                                <option value="8">08:00</option>
+                                <option value="9">09:00</option>
+                                <option value="10">10:00</option>
+                                <option value="11">11:00</option>
+                                <option value="12">12:00</option>
+                                <option value="13">13:00</option>
+                                <option value="14">14:00</option>
+                                <option value="15">15:00</option>
+                                <option value="16">16:00</option>
+                                <option value="17">17:00</option>
+                                <option value="18">18:00</option>
+                                <option value="19">19:00</option>
+                                <option value="20">20:00</option>
+                                <option value="21">21:00</option>
+                                <option value="22">22:00</option>
+                                <option value="23">23:00</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6 pr-md-1">
+                        <div class="form-group">
+                            <label>Fin Hora Cita: </label>
+                            <select [(ngModel)]="citationModel.end_citationtime" name="end_citationtime"
+                                class="form-control">
+                                <option value="0">00:00</option>
+                                <option value="1">01:00</option>
+                                <option value="2">02:00</option>
+                                <option value="3">03:00</option>
+                                <option value="4">04:00</option>
+                                <option value="5">05:00</option>
+                                <option value="6">06:00</option>
+                                <option value="7">07:00</option>
+                                <option value="8">08:00</option>
+                                <option value="9">09:00</option>
+                                <option value="10">10:00</option>
+                                <option value="11">11:00</option>
+                                <option value="12">12:00</option>
+                                <option value="13">13:00</option>
+                                <option value="14">14:00</option>
+                                <option value="15">15:00</option>
+                                <option value="16">16:00</option>
+                                <option value="17">17:00</option>
+                                <option value="18">18:00</option>
+                                <option value="19">19:00</option>
+                                <option value="20">20:00</option>
+                                <option value="21">21:00</option>
+                                <option value="22">22:00</option>
+                                <option value="23">23:00</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 pr-md-1">
+                        <div class="form-group">
+                            <label>Fecha de la Cita: </label>
+                            <input [(ngModel)]="citationModel.citation_date" name="citation_date" type="date"class="form-control">
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn btn-danger">Guardar</button>
+                
+            </form>
+            </div>
+            
+        </div>
+    </div>
+    <br><br>

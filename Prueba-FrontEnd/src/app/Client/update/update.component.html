@@ -1,0 +1,49 @@
+<br>
+<div class="container md-6">
+    <div class="card">
+        <div class="card-header">
+            <h3>Actualizar Cliente</h3>
+        </div>
+        <div class="card-body">
+            <form action="">
+                <div class="form-group">
+                    <label  for="">Nombre:</label>
+                    <input name="nameClient" #nameClient="ngModel" [(ngModel)]="client.name"  type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="">Apellidos:</label>
+                    <input name="LastNameClient" #LastNameClient="ngModel" [(ngModel)]="client.lastname" type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="">Identificacion:</label>
+                    <input name="identificationClient" #identificationClient="ngModel" [(ngModel)]="client.identification" type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="">Tipo de Identificacion:</label>
+                    <select name="typeClient" #typeClient="ngModel" [(ngModel)]="client.identification_type" class="form-control">
+                        <option>CC</option>
+                        <option>TI</option>
+                        <option>Pasaporte</option>               
+                    </select>
+                </div>
+               <!-- <div class="form-group">
+                    <label for="">Fecha:</label>
+                    <input  [(ngModel)]="clientModel.creation_date" type="date" class="form-control">
+                </div>-->
+                <div class="form-group">
+                    <label for="">Pais</label>
+                    <select class="custom-select"  name="countryClient" #countryClient="ngModel" [(ngModel)]="client.countryid.countryid">
+                        <option *ngFor="let country of countries" value="{{country.countryid}}">{{country.name}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="">Ciudad</label>
+                    <select class="custom-select"  name="cityClient" #cityClient="ngModel" [(ngModel)]="client.cityid.cityid">
+                        <option *ngFor="let c of cities" value="{{c.cityid}}">{{c.name}}</option>
+                    </select>
+                </div>
+                <button (click)="Update(client)"class="btn btn-danger">Actualizar</button>
+            </form>
+        </div>
+    </div>
+</div>

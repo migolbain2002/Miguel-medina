@@ -1,0 +1,41 @@
+<br>
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h3>Asesores</h3>
+        </div>
+        <div class="card-body">
+            <table datatable class="cell-border">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre Completo</th>
+                        <th>Identificacion</th>
+                        <th>Tipo de Identificacion</th>   <!-- AQUI VA LOS HEADERS DE LA TABLA --> 
+                        <th>Años de Experiencia</th>
+                        <th>Especialidad</th>
+                        <th>Inicio Hora de Atencion</th>
+                        <th>Terminacion Hora de Atencion</th> 
+                        <th>Acciones</th>          
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let asesor of asesors" class="text-center">
+                        <td>{{asesor.asesorid}}</td>
+                        <td>{{asesor.fullname}}</td>
+                        <td>{{asesor.identification}}</td>
+                        <td>{{asesor.identification_type}}</td>
+                        <td>{{asesor.experience_years}}</td>
+                        <td>{{asesor.speciality}}</td>
+                        <td>{{asesor.begin_timeatention + ':00'}}</td>
+                        <td>{{asesor.end_timeatention + ':00'}}</td>               
+                        <td>
+                            <button (click)="Edit(asesor)"type="button" class="btn btn-warning">Editar</button>                                         
+                        </td>                    
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

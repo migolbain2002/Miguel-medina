@@ -1,0 +1,44 @@
+
+<br>
+<img class="image">
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h3>Clientes</h3>
+        </div>
+        <div class="card-body">
+            <table datatable class="cell-border">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombres</th>
+                        <th>Apellidos</th>
+                        <th>Identificacion</th>   <!-- AQUI VA LOS HEADERS DE LA TABLA --> 
+                        <th>Tipo de Identificacion</th>
+                        <th>Fecha de Creacion</th>
+                        <th>Pais</th>
+                        <th>Ciudad</th> 
+                        <th>Acciones</th>          
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let client of clients" class="text-center">
+                        <td>{{client.clientid}}</td>
+                        <td>{{client.name}}</td>
+                        <td>{{client.lastname}}</td>
+                        <td>{{client.identification}}</td>
+                        <td>{{client.identification_type}}</td>
+                        <td>{{client.fecha | date}}</td>
+                        <td>{{client.countryid.name}}</td>
+                        <td>{{client.cityid.name}}</td>               
+                        <td>
+                            <button (click)="Edit(client)"type="button" class="btn btn-warning">Editar</button>                    
+                        </td>                    
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
